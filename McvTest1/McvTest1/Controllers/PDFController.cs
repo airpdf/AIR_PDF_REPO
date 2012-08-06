@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using McvTest1.Models;
+using System.Diagnostics;
 
 namespace McvTest1.Controllers
 {
@@ -23,5 +24,19 @@ namespace McvTest1.Controllers
             return View(pdfs.ToList());
         }
 
+        public ActionResult Upload()
+        {
+            Process pc = new Process();
+            String currentPath = System.AppDomain.CurrentDomain.BaseDirectory.ToString();
+            //ProcessStartInfo psi = new ProcessStartInfo(currentPath + "/Flash/pdf2swf.exe", currentPath+"/Flash/testPDF.pdf" +" -o " +currentPath+"/Flash/testPDF.swf");
+            //pc.StartInfo = psi;
+            pc.StartInfo.FileName = currentPath + "\\Flash\\pdf2swf.exe";
+            pc.StartInfo.Arguments = currentPath + "\\Flash\\testPDF.pdf" + " -o " + currentPath + "\\Flash\\testPDF.swf";
+            pc.Start();
+            pc.WaitForExit();
+            pc.Close();
+            return View();
+
+        }
     }
 }
