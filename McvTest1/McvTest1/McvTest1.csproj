@@ -81,7 +81,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\PDF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

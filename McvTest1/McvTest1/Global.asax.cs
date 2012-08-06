@@ -39,6 +39,7 @@ namespace McvTest1
             RegisterRoutes(RouteTable.Routes);
 
             Database.SetInitializer<PDFDbContext>(new Devtalk.EF.CodeFirst.DontDropDbJustCreateTablesIfModelChanged<PDFDbContext>());
+
         }
     }
 }

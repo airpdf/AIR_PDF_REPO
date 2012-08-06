@@ -17,6 +17,5 @@ namespace McvTest1.Models
     public class PDFDbContext : DbContext
     {
         public DbSet<PDF> PDFs { get; set; }
-        //public DbSet<PDF> dbe8a4fca9b69347d69e47a09701772bdd { get; set; }
     }
 }
