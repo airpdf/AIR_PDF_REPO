@@ -31,7 +31,7 @@ namespace McvTest1.Controllers
             //ProcessStartInfo psi = new ProcessStartInfo(currentPath + "/Flash/pdf2swf.exe", currentPath+"/Flash/testPDF.pdf" +" -o " +currentPath+"/Flash/testPDF.swf");
             //pc.StartInfo = psi;
             pc.StartInfo.FileName = currentPath + "\\Flash\\pdf2swf.exe";
-            pc.StartInfo.Arguments = currentPath + "\\Flash\\testPDF.pdf" + " -o " + currentPath + "\\Flash\\testPDF.swf";
+            pc.StartInfo.Arguments = currentPath + "\\Flash\\testPDF2.pdf" + " -o " + currentPath + "\\Flash\\testPDF2.swf";
             pc.Start();
             pc.WaitForExit();
             pc.Close();

@@ -11,6 +11,9 @@
 <p>
     <%: Html.ActionLink("Create New", "Create") %>
 </p>
+<p>
+    <%: Html.ActionLink("Upload New", "Upload") %>
+</p>
 <table>
     <tr>
         <th>

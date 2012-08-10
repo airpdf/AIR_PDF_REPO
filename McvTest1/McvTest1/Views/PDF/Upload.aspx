@@ -7,5 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
 <h2>Upload</h2>
-<a href = "/Flash/testPDF.swf"></a>
+<p>
+    <%: Html.ActionLink("Upload New", "Upload") %>
+</p>
 </asp:Content>
