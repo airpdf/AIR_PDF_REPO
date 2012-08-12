@@ -38,7 +38,7 @@ namespace McvTest1.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "pdf");
                     }
                 }
                 else

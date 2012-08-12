@@ -209,6 +209,8 @@ select {
 input[type="submit"] {
     font-size: 1.2em;
     padding: 5px;
+    height: 31px;
+    width: 64px;
 }
 
 /* TABLE

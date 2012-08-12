@@ -6,8 +6,13 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
+
 <h2>Upload</h2>
+
+<form action="upload" method="post" enctype="multipart/form-data">
+  <input type="file" name="FileUpload1" accept=".pdf" /><br />
+  &nbsp;<input type="submit" name="Submit" id="Submit" value="Upload" /></form>
 <p>
-    <%: Html.ActionLink("Upload New", "Upload") %>
+    <%: Html.ActionLink("Return", "Index") %>
 </p>
 </asp:Content>

@@ -6,11 +6,8 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<h2>PDFs</h2>
+<h2>Uploaded PDFs</h2>
 
-<p>
-    <%: Html.ActionLink("Create New", "Create") %>
-</p>
 <p>
     <%: Html.ActionLink("Upload New", "Upload") %>
 </p>
@@ -24,6 +21,9 @@
         </th>
         <th>
             uploadTime
+        </th>
+        <th>
+            Action
         </th>
         <th></th>
     </tr>
@@ -40,8 +40,9 @@
             <%: Html.DisplayFor(modelItem => item.uploadTime) %>
         </td>
         <td>
-            <%: Html.ActionLink("Edit", "Edit", new { id=item.ID }) %> |
-            <%: Html.ActionLink("Details", "Details", new { id=item.ID }) %> |
+            <%: Html.DisplayFor(modelItem => item.fileURL) %>
+        </td>
+        <td>
             <%: Html.ActionLink("Delete", "Delete", new { id=item.ID }) %>
         </td>
     </tr>

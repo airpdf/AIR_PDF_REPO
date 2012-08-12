@@ -12,6 +12,7 @@ namespace McvTest1.Models
         public String Title{ get; set; }
         public String Author { get; set; }
         public DateTime uploadTime { get; set; }
+        public String fileURL { get; set; }
     }
 
     public class PDFDbContext : DbContext
