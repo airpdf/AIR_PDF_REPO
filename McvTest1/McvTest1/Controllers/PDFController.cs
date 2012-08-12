@@ -66,10 +66,8 @@ namespace McvTest1.Controllers
                 string keyName = filename;
                 AmazonS3 client = Amazon.AWSClientFactory.CreateAmazonS3Client(accessKey, secretAccessKey);
                 PutObjectRequest request = new PutObjectRequest();
-
                 request.WithInputStream(Request.Files[upload].InputStream);
                 request.CannedACL = S3CannedACL.PublicRead;
-
                 request.WithBucketName(bucketName);
                 request.WithKey(keyName);
                 request.StorageClass = S3StorageClass.ReducedRedundancy; //set storage to reduced redundancy
