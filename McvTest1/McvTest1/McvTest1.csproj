@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AWSSDK, Version=1.4.15.1, Culture=neutral, PublicKeyToken=cd2d24cd2bace800, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\AWS SDK for .NET\bin\AWSSDK.dll</HintPath>
+    </Reference>
     <Reference Include="Devtalk.EF.CodeFirst">
       <HintPath>..\packages\EFCodeFirst.CreateTablesOnly.1.0.2\lib\Devtalk.EF.CodeFirst.dll</HintPath>
     </Reference>
@@ -162,7 +166,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Temp\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

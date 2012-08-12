@@ -8,6 +8,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.Remoting.Contexts;
 using System.Data.SqlClient;
+using Amazon;   // these are part of the AWSSDK.dll that you add to the project
+using Amazon.S3;
+using Amazon.S3.Model;
 
 namespace McvTest1.Controllers
 {
@@ -46,16 +49,32 @@ namespace McvTest1.Controllers
             pc.Close();
              * */
 
-            //Upload pdf file to the server and database
+            //Upload pdf file to the server and database 
             
             foreach (string upload in Request.Files)
             {
                 if (!helperClass.HasFile(Request.Files[upload])) continue;
-                string path = AppDomain.CurrentDomain.BaseDirectory.ToString() + "Temp\\";
+                string path = "https://s3-us-west-1.amazonaws.com/airpdfstorage/";
                 string filename = Path.GetFileName(Request.Files[upload].FileName);
-                Request.Files[upload].SaveAs(Path.Combine(path, filename));
                 DateTime nowTime = DateTime.Now;
                 string user = User.Identity.Name.ToString();
+
+                //upload to amazon s3
+                string accessKey = "AKIAIO4BEQ2UGFAMHRFQ";
+                string secretAccessKey = "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";
+                string bucketName = "airpdfstorage";
+                string keyName = filename;
+                AmazonS3 client = Amazon.AWSClientFactory.CreateAmazonS3Client(accessKey, secretAccessKey);
+                PutObjectRequest request = new PutObjectRequest();
+
+                request.WithInputStream(Request.Files[upload].InputStream);
+                request.CannedACL = S3CannedACL.PublicRead;
+
+                request.WithBucketName(bucketName);
+                request.WithKey(keyName);
+                request.StorageClass = S3StorageClass.ReducedRedundancy; //set storage to reduced redundancy
+                client.PutObject(request);
+                client.Dispose();
 
                 using (var conn = new SqlConnection(connect))
                 {
@@ -69,6 +88,8 @@ namespace McvTest1.Controllers
                     cmd.ExecuteNonQuery();
                 }
             }
+
+            
             return View();
         }
 
