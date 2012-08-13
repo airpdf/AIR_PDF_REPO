@@ -58,7 +58,7 @@ namespace McvTest1.Controllers
                 DateTime nowTime = DateTime.Now;
                 string user = User.Identity.Name.ToString();
 
-                //store to app_data folder
+                //store to app_data folder for thumbnail 
                 string path2 = AppDomain.CurrentDomain.BaseDirectory + "App_Data/";
                 Request.Files[upload].SaveAs(Path.Combine(path2, filename));
 
