@@ -6,7 +6,11 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<h2>Uploaded PDFs</h2>
+ <h2><% foreach (var item in Model) { %>
+            <%: Html.DisplayFor(modelItem => item.Author) %>
+            <%break;%>
+<% } %>
+uploaded PDFs</h2>
 
 <p>
     <%: Html.ActionLink("Upload New", "Upload") %>
@@ -15,9 +19,6 @@
     <tr>
         <th>
             Title
-        </th>
-        <th>
-            Author
         </th>
         <th>
             uploadTime
@@ -34,13 +35,10 @@
             <%: Html.DisplayFor(modelItem => item.Title) %>
         </td>
         <td>
-            <%: Html.DisplayFor(modelItem => item.Author) %>
-        </td>
-        <td>
             <%: Html.DisplayFor(modelItem => item.uploadTime) %>
         </td>
         <td>
-            <%: Html.DisplayFor(modelItem => item.fileURL) %>
+            <%= String.Format("<a href=\"{0}\">View</a>", item.fileURL) %>
         </td>
         <td>
             <%: Html.ActionLink("Delete", "Delete", new { id=item.ID }) %>

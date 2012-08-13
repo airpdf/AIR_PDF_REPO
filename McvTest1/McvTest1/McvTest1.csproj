@@ -78,7 +78,6 @@
   <ItemGroup>
     <Compile Include="App_Start\DontDropDbJustCreateTablesIfModelChangedStart.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PDFController.cs" />
     <Compile Include="Global.asax.cs">
@@ -132,7 +131,6 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
-    <Content Include="Views\HelloWorld\Index.aspx" />
     <Content Include="Views\PDF\Index.aspx" />
     <Content Include="Views\PDF\Upload.aspx" />
     <Content Include="Web.config">
