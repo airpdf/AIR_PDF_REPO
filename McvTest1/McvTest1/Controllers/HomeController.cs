@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using McvTest1.Models;
 
 namespace McvTest1.Controllers
 {
     public class HomeController : Controller
     {
+
+        PDFDbContext db = new PDFDbContext();
+
         public ActionResult Index()
         {
-            ViewBag.Message = "欢迎使用 ASP.NET MVC!";
-
-            return View();
+            var pdfs = from p in db.PDFs
+                       //where p.uploadTime>
+                       select p;
+            return View(pdfs.ToList());
         }
 
         public ActionResult About()

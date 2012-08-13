@@ -58,6 +58,10 @@ namespace McvTest1.Controllers
                 DateTime nowTime = DateTime.Now;
                 string user = User.Identity.Name.ToString();
 
+                //store to app_data folder
+                string path2 = AppDomain.CurrentDomain.BaseDirectory + "App_Data/";
+                Request.Files[upload].SaveAs(Path.Combine(path2, filename));
+
                 //upload to amazon s3
                 string accessKey = "AKIAIO4BEQ2UGFAMHRFQ";
                 string secretAccessKey = "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";
