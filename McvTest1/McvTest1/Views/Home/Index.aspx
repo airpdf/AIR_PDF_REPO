@@ -1,6 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<McvTest1.Models.PDF>>" %>
 <%@ Register TagPrefix="tc" Assembly="TallComponents.PDFThumbnail" Namespace="TallComponents.Web.PDF" %>
-
+<script runat="server">
+    public Thumbnail thumbnail = new Thumbnail();
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        thumbnail.Index = 1;
+        thumbnail.DPI = 18;
+    }
+</script>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     主页
 </asp:Content>
@@ -9,49 +16,38 @@
 
  <h2>Uploaded PDFs</h2>
 
-<table>
-    <tr>
-        <th>
-            Title
-        </th>
-        <th>
-            Uploader
-        </th>
-        <th>
-            uploadTime
-        </th>
-        <th>
-            Action
-        </th>
-        <th></th>
-    </tr>
 
+   <form id="Form1" method="post" runat="server">
 <% foreach (var item in Model) { %>
-    <tr>
-        <td>
-            <%: Html.DisplayFor(modelItem => item.Title) %>
-        </td>
-        <td>
-            <%: Html.DisplayFor(modelItem => item.Author) %>
-        </td>
-        <td>
+<%thumbnails.Controls.Clear(); %>
+<%thumbnail.Path = "App_Data/" + item.Title; %>
+<%thumbnails.Controls.Add(thumbnail); %>
+<table>
+<tr>
+<th>
+<%: Html.DisplayFor(modelItem => item.Title) %>
+</th>
+<th></th>
+</tr>
+<tr>
+<td>
+      <asp:Panel ID="thumbnails" runat="server" />
+  </td>
+  <td>
+            <%= String.Format("<b>Uploaded by: "+item.Author+"</b>", "") %>
+            <br />
             <%: Html.DisplayFor(modelItem => item.uploadTime) %>
-        </td>
-        <td>
+            <br />
             <%= String.Format("<a href=\"{0}\">View</a>", item.fileURL) %>
-        </td>
-    </tr>
-<% } %>
-
+            <br />
+ </td>
+</tr>
 </table>
+<br />
+<br />
+<% } %>
+  </form>
 
-<form id="Form1" method="post" runat="server">
-      <tc:thumbnail path="App_Data/testPDF.pdf" 
-                    index="1"
-                    runat="server" 
-                    borderwidth="1"
-                    bordercolor="gray"
-                    dpi="12" />
-    </form>
+
 
 </asp:Content>
