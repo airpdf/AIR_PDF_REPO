@@ -21,6 +21,7 @@
 <% foreach (var item in Model) { %>
 <%thumbnails.Controls.Clear(); %>
 <%thumbnail.Path = "App_Data/" + item.Title; %>
+<%thumbnail.URL = item.fileURL; %>
 <%thumbnails.Controls.Add(thumbnail); %>
 <table>
 <tr>
@@ -37,8 +38,6 @@
             <%= String.Format("<b>Uploaded by: "+item.Author+"</b>", "") %>
             <br />
             <%: Html.DisplayFor(modelItem => item.uploadTime) %>
-            <br />
-            <%= String.Format("<a href=\"{0}\">View</a>", item.fileURL) %>
             <br />
  </td>
 </tr>
