@@ -1,26 +1,26 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<McvTest1.Models.RegisterModel>" %>
 
 <asp:Content ID="registerTitle" ContentPlaceHolderID="TitleContent" runat="server">
-    注册
+    Register
 </asp:Content>
 
 <asp:Content ID="registerContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>创建新帐户</h2>
+    <h2>Create a new account</h2>
     <p>
-        使用以下表单创建新帐户。 
+        Use the form below to create a new account.  
     </p>
     <p>
-        密码必须至少包含 <%: Membership.MinRequiredPasswordLength %> 个字符。
+        Passwords are required to be a minimum of <%: Membership.MinRequiredPasswordLength %> characters in length.
     </p>
 
     <script src="<%: Url.Content("~/Scripts/jquery.validate.min.js") %>" type="text/javascript"></script>
     <script src="<%: Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js") %>" type="text/javascript"></script>
 
     <% using (Html.BeginForm()) { %>
-        <%: Html.ValidationSummary(true, "帐户创建不成功。请更正错误并重试。") %>
+        <%: Html.ValidationSummary(true, "Failed, try again! ") %>
         <div>
             <fieldset>
-                <legend>帐户信息</legend>
+                <legend>Account Information</legend>
                 
                 <div class="editor-label">
                     <%: Html.LabelFor(m => m.UserName) %>
@@ -55,7 +55,7 @@
                 </div>
                 
                 <p>
-                    <input type="submit" value="注册" />
+                    <input type="submit" value="Create" />
                 </p>
             </fieldset>
         </div>

@@ -1,23 +1,23 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<McvTest1.Models.LogOnModel>" %>
 
 <asp:Content ID="loginTitle" ContentPlaceHolderID="TitleContent" runat="server">
-    登录
+    Login
 </asp:Content>
 
 <asp:Content ID="loginContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>登录</h2>
+    <h2>Login</h2>
     <p>
-        请输入用户名和密码。 <%: Html.ActionLink("注册", "Register") %> 如果您没有帐户。
+        Please enter your user name and password. <%: Html.ActionLink("Register", "Register") %> if you don't have an account.
     </p>
 
     <script src="<%: Url.Content("~/Scripts/jquery.validate.min.js") %>" type="text/javascript"></script>
     <script src="<%: Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js") %>" type="text/javascript"></script>
 
     <% using (Html.BeginForm()) { %>
-        <%: Html.ValidationSummary(true, "登录不成功。请更正错误并重试。") %>
+        <%: Html.ValidationSummary(true, "Fail, please try again!") %>
         <div>
             <fieldset>
-                <legend>帐户信息</legend>
+                <legend>Account Information</legend>
                 
                 <div class="editor-label">
                     <%: Html.LabelFor(m => m.UserName) %>
@@ -41,7 +41,7 @@
                 </div>
                 
                 <p>
-                    <input type="submit" value="登录" />
+                    <input type="submit" value="Login" />
                 </p>
             </fieldset>
         </div>

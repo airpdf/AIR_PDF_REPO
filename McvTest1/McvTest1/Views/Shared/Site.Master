@@ -21,8 +21,8 @@
             </div>
             <nav>
                 <ul id="menu">
-                    <li><%: Html.ActionLink("主页", "Index", "Home")%></li>
-                    <li><%: Html.ActionLink("关于", "About", "Home")%></li>
+                    <li><%: Html.ActionLink("Home", "Index", "Home")%></li>
+                    <li><%: Html.ActionLink("About", "About", "Home")%></li>
                 </ul>
             </nav>
         </header>

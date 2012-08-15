@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
 using McvTest1.Models;
+using Amazon.SimpleEmail;
+using System.Configuration;
+using Amazon.SimpleEmail.Model;
 
 namespace McvTest1.Controllers
 {
@@ -83,6 +86,19 @@ namespace McvTest1.Controllers
 
                 if (createStatus == MembershipCreateStatus.Success)
                 {
+                    //Send email by amazon ses
+                    string accessKey = "AKIAIO4BEQ2UGFAMHRFQ";
+                    string secretAccessKey = "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";
+                    AmazonSimpleEmailServiceConfig amazonConfiguration = new AmazonSimpleEmailServiceConfig();
+                    AmazonSimpleEmailServiceClient clientMail = new AmazonSimpleEmailServiceClient(accessKey, secretAccessKey, amazonConfiguration);
+                    Destination destination = new Destination();
+                    destination.ToAddresses.Add(model.Email);
+                    Body body = new Body() { Html = new Content("Welcome to AIRPDF"+"Your account is: "+model.UserName+" Your password is: "+model.ConfirmPassword) };
+                    Content subject = new Content("Welcome to AIRPDF!");
+                    Message message = new Message(subject, body);
+                    SendEmailRequest sendEmailRequest = new SendEmailRequest("airpdf@gmail.com", destination, message);
+                    clientMail.SendEmail(sendEmailRequest);
+
                     FormsAuthentication.SetAuthCookie(model.UserName, false /* createPersistentCookie */);
                     return RedirectToAction("Index", "pdf");
                 }
