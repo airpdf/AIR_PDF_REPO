@@ -93,7 +93,7 @@ namespace McvTest1.Controllers
                     AmazonSimpleEmailServiceClient clientMail = new AmazonSimpleEmailServiceClient(accessKey, secretAccessKey, amazonConfiguration);
                     Destination destination = new Destination();
                     destination.ToAddresses.Add(model.Email);
-                    Body body = new Body() { Html = new Content("Welcome to AIRPDF"+"Your account is: "+model.UserName+" Your password is: "+model.ConfirmPassword) };
+                    Body body = new Body() { Html = new Content("Welcome to AIRPDF "+"Your account is: "+model.UserName+" Your password is: "+model.ConfirmPassword) };
                     Content subject = new Content("Welcome to AIRPDF!");
                     Message message = new Message(subject, body);
                     SendEmailRequest sendEmailRequest = new SendEmailRequest("airpdf@gmail.com", destination, message);
