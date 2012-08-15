@@ -120,7 +120,6 @@
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="EFCodeFirstReadMe.txt" />
-    <Content Include="Flash\pdf2swf.exe" />
     <Content Include="Global.asax" />
     <Content Include="Images\logo.jpg" />
     <Content Include="refLib\AWSSDK.dll" />
@@ -414,7 +413,6 @@
     <None Include="CMaps\UniKS-UTF8-V" />
     <None Include="CMaps\V" />
     <None Include="CMaps\WP-Symbol" />
-    <None Include="Flash\testPDF.pdf" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
