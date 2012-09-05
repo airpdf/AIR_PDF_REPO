@@ -20,9 +20,9 @@ namespace McvTest1.Controllers
         // GET: /PDF/
 
         PDFDbContext db = new PDFDbContext();
-        const string connect = @"Data Source=49075d28-6279-4710-bebd-a0a201672914.sqlserver.sequelizer.com;
-         Initial Catalog=db49075d2862794710bebda0a201672914; Persist Security Info=True;
-         User ID=bfuzdzysumjqjlgr; Password=2TcCQkkMgUGLjYGx7TVVBs6HkB6Ah7VhwQz38kzZciWvwuG748PJNBoHWAsnnSEi";
+        const string connect = @"Data Source=a0569f23-36cd-4ae7-9d19-a0c3001d0b4e.sqlserver.sequelizer.com;
+         Initial Catalog=dba0569f2336cd4ae79d19a0c3001d0b4e; Persist Security Info=True;
+         User ID=czmdrrcnihoswqzc ; Password=Kjb4i7xxCeKT5oZstrgfZB5qtCbRVqJqvgbP5W4gEgMJdtKfzpyJGZoioSHM5NJn";
 
 
         public ActionResult Index()
