@@ -16,8 +16,6 @@ namespace McvTest1.Controllers
 {
     public class PDFController : Controller
     {
-        //
-        // GET: /PDF/
 
         PDFDbContext db = new PDFDbContext();
         const string connect = @"Data Source=a0569f23-36cd-4ae7-9d19-a0c3001d0b4e.sqlserver.sequelizer.com;
